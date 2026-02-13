@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Viewport settings for perfect mobile responsiveness -->
+    <title>Valentine Day Special 💖</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            touch-action: manipulation;
+        }
+
+        /* Extra inline CSS to ensure white rain is absolute white */
+        .drop {
+            background: #ffffff !important;
+            box-shadow: 0 0 5px #fff;
+        }
+
+        .gif-placeholder {
+            font-size: 5rem;
+            text-align: center;
+            display: none;
+            color: #ff006e;
+            animation: heartbeat 1s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Corner & Side Decorations (Flowers & Bells) -->
+    <div class="corner-decorations">
+        <div class="corner top-left">💐🔔</div>
+        <div class="corner top-right">🔔💐</div>
+        <div class="corner bottom-left">🔔💐</div>
+        <div class="corner bottom-right">💐🔔</div>
+
+        <!-- Side Decorations -->
+        <div class="side-decor top-center">🌹🔔🌸</div>
+        <div class="side-decor bottom-center">🔔💐🔔</div>
+        <div class="side-decor left-center">🌺<br>🔔<br>🌷</div>
+        <div class="side-decor right-center">🌻<br>🔔<br>🌹</div>
+    </div>
+
+    <!-- Floating Emojis / Background Layer -->
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <!-- Rain (Hidden initially, appears on Yes) -->
+    <div class="rain"></div>
+
+    <!-- Main Content -->
+    <div class="container question-card-container">
+        <div class="card">
+            <h1>My Dearest Gargi</h1>
+            <div class="heart-pulse">❤️</div>
+            <p class="valentine-text">Will you adjust your world to fit mine & be my Valentine? 🌹</p>
+
+            <div class="buttons">
+                <!-- Yes button first for accessibility order, but visually handled -->
+                <button class="btn yes-btn">Yes, I will! 💖</button>
+                <button class="btn no-btn">No 💔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message (Hidden Initially) -->
+    <div class="success-container" style="display: none;">
+        <h2 class="success-message">Yay! My Heart is Yours! 😍</h2>
+
+        <div class="video-container">
+            <!-- Using a VIDEO tag as requested, or highly reliable GIF. -->
+            <img src="PzplJ6h1UmrdyaqWlZ.webp" alt="Cute Love Hug"
+                onerror="this.style.display='none'; document.querySelector('.gif-placeholder').style.display='block';">
+            <div class="gif-placeholder">🐻💖🐰<br><span style="font-size: 1rem;">(Imagine us hugging!)</span></div>
+        </div>
+
+        <div class="love-note">
+            <p><strong>Gargi, Thank you for making my life beautiful! ❤️</strong></p>
+            <p>I promise to cherish you, annoy you (just a little), and love you endlessly. You are my favorite
+                notification! 💌</p>
+            <p>Happy Valentine's Day! 🌹✨</p>
+            <p style="text-align: right; font-size: 0.9rem; margin-top: 10px;"><i>~ Yours, Abhi</i></p>
+        </div>
+
+        <!-- Audio -->
+        <audio id="love-song" preload="auto">
+            <source src="Gehra-Hua-Dhurandhar.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@400;600;800&display=swap');
+
+:root {
+    --primary-color: #ff006e;
+    /* Vibrant Pink */
+    --secondary-color: #3a86ff;
+    /* Blue */
+    --accent-color: #ffbe0b;
+    /* Yellow */
+    --green: #06d6a0;
+    /* Green */
+    --orange: #fb5607;
+    /* Orange */
+    --card-bg: rgba(255, 255, 255, 0.95);
+
+    /* Start Gradient - Fun & Colorful */
+    --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #a18cd1 100%);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    /* Lock scroll */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientFlow 4s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+}
+
+/* Success State - Sweet Romantic Night Theme */
+body.success-state {
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    /* Deep Purple Night */
+    background-size: 100% 100%;
+    animation: none;
+    transition: background 1.5s ease;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Rain Effect - WHITE RAIN (Visible on Black/Pink) */
+.rain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+    pointer-events: none;
+}
+
+.rain.active {
+    display: block;
+}
+
+.drop {
+    position: absolute;
+    bottom: 100%;
+    width: 2px;
+    height: 25px;
+    pointer-events: none;
+    background: #ffffff;
+    box-shadow: 0 0 10px #fff;
+    animation: drop 0.6s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0vh);
+    }
+
+    100% {
+        transform: translateY(95vh);
+    }
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    /* Just a wrapper now */
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    /* STATIC POSITIONING via Flexbox */
+    position: relative;
+    margin: auto;
+    /* The magic centering trick */
+    transform: none !important;
+    top: auto;
+    left: auto;
+
+    background: var(--card-bg);
+    border: 5px solid #ff006e;
+    border-radius: 30px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255, 0, 110, 0.4);
+
+    width: 90%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: none !important;
+    animation: none !important;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #cc0058;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.valentine-text {
+    font-size: 1.2rem;
+    color: #2b2d42;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.heart-pulse {
+    font-size: 5rem;
+    margin: 10px 0;
+    animation: heartbeat 1.2s infinite;
+    filter: drop-shadow(0 0 10px #ff006e);
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.25);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.25);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.yes-btn {
+    background: #ff006e;
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.6);
+    z-index: 11;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    background: #d90429;
+}
+
+.no-btn {
+    background: black;
+    color: #ff006e;
+    border: 3px solid #ff006e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    position: relative;
+}
+
+/* Success Container - FIT EVERYTHING ON ONE PAGE */
+.success-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    overflow: hidden;
+    /* NO SCROLLING */
+    box-sizing: border-box;
+}
+
+.success-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff006e;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 0 #fff;
+    animation: bounceIn 1s;
+    text-align: center;
+    line-height: 1.1;
+}
+
+/* Video/Image Container - COMPACT */
+.video-container {
+    width: 100%;
+    max-width: 220px;
+    height: 210px;          /* FIXED height important */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+    margin: 8px 0;
+    border: 3px solid #fff;
+    background: #ffc0cb;
+}
+
+
+.video-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;   
+}
+
+
+.love-note {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 90%;
+    width: 100%;
+    max-width: 400px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 3px solid #ff006e;
+    margin: 8px 0;
+}
+
+/* Floating Items - MULTI-DIRECTION CHAOS */
+.floating-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.float-item {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    /* Animation name set by JS randomly */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* 4 Patterns for "Free Flow" */
+@keyframes floatPath1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(30vw, -40vh) rotate(360deg);
+    }
+}
+
+@keyframes floatPath2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-40vw, 30vh) rotate(-180deg);
+    }
+}
+
+@keyframes floatPath3 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-30vw, -40vh) rotate(180deg);
+    }
+}
+
+@keyframes floatPath4 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(40vw, 40vh) rotate(-360deg);
+    }
+}
+
+/* Corner Decorations - Flowers & Bells */
+.corner-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.corner {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: sway 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Side Decorations */
+.side-decor {
+    position: absolute;
+    font-size: 2rem;
+    animation: sway 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    text-align: center;
+}
+
+.top-center {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-center {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.left-center {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1.5;
+}
+
+.right-center {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .success-message {
+        font-size: 1.8rem;
+    }
+
+    .video-container {
+        max-width: 250px;
+        max-height: 180px;
+    }
+
+    .love-note {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    .corner {
+        font-size: 1.8rem;
+    }
+
+    .side-decor {
+        font-size: 1.5rem;
+    }
+}
